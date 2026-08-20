@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+solve() {
+    # Write your solution here.
+    # Count distinct values, print "<count> <value>" sorted by count desc, then value asc.
+    printf '%s\n' "$1" | grep -v '^$' | sort | uniq -c | sort -k1,1nr -k2,2 | awk '{print $1, $2}'
+}
+
+data="$(cat)"  # the whole input, unparsed
+solve "$data"
