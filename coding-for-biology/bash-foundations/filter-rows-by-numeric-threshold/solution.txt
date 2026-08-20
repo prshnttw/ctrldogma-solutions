@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+solve() {
+    # Write your solution here.
+    # First line: threshold, second: header (skip), rest: data rows.
+    # Print full rows where column 3 < threshold.
+    local input="$1"
+    local threshold
+    threshold=$(printf '%s\n' "$input" | head -n1)
+    printf '%s\n' "$input" | tail -n +3 | awk -F'\t' -v thr="$threshold" '$3 < thr'
+}
+
+data="$(cat)"  # the whole input, unparsed
+solve "$data"
