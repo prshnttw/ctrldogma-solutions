@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+solve() {
+    # Write your solution here.
+    # First line of input is k, second is header (skip), rest are data rows.
+    # Print column k from each data row.
+    local input="$1"
+    local k
+    k=$(printf '%s\n' "$input" | head -n1)
+    printf '%s\n' "$input" | tail -n +3 | cut -f"$k"
+}
+
+data="$(cat)"  # the whole input, unparsed
+solve "$data"
