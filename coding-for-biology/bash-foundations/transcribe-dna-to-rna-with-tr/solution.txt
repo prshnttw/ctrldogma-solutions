@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+solve() {
+    # Write your solution here.
+    # Replace every T with U and print the RNA sequence.
+    printf '%s' "$1" | tr 'T' 'U'
+}
+
+dna="$(cat)"  # the whole input, unparsed
+solve "$dna"
