@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+solve() {
+    # Write your solution here.
+    # Print one identifier per line (leading > and any description removed).
+    printf '%s\n' "$1" | grep '^>' | sed 's/^>//; s/ .*//'
+}
+
+fasta="$(cat)"  # the whole input, unparsed
+solve "$fasta"
